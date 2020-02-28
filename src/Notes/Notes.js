@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class NoteRoute extends Component {
+class Notes extends Component {
   render() {
     return (
-      <div className='MainRoute'>
+      <div className='Notes'>
       
       </div>
     )
   }
 }
 
-export default NoteRoute;
+export default Notes;

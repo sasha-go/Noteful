@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <Link to={"/"}>Noteful</Link>
+          <h1><Link to={"/"}>Noteful</Link></h1>
         </header>
         <main>
           <Switch>
