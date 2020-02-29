@@ -8,12 +8,13 @@ import Note from './Note/Note';
 import AddNote from './AddNote/AddNote';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    state = {
-      
-    }
-  }
+
+  //   state = {
+  //     selectedId: ,
+  //   }
+  // }
+  //user folderid to filter out notes by folder
+  
 
   render() {
     return (
@@ -22,26 +23,20 @@ class App extends Component {
           <Link to={"/"}>Noteful</Link>
         </h1>
           <Switch>
-          <Route 
-              path="/folder/:folderId"
-              render={(props) => <SideBar folders={STORE.folders}
-              {...props}/>}
-            />
-          <Route
-              exact path="/"
-              render={(props) => <SideBar folders={STORE.folders}/>}
-            />
+            <Route 
+                path="/folder/:folderId"
+                render={(props) => <SideBar folders={STORE.folders}
+                notes={STORE.notes}
+                {...props} />}
+              />
+            <Route
+                exact path="/"
+                render={(props) => <SideBar folders={STORE.folders}
+                notes={STORE.notes}
+                {...props} />}
+              />
           </Switch>
         
-        <main>
-          <Route 
-            path="/"
-            render={(props) => <Main notes={STORE.notes} {...props}/>}
-          />
-
-        </main>
-        
-       
       </div>
     );
   }

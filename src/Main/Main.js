@@ -7,6 +7,7 @@ import './Main.css'
 class Main extends Component {
   render() {
     const { notes } = this.props;
+    console.log('hi', this.props)
 
     return (
       <div className='Main'>
