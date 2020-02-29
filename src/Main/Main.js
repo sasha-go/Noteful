@@ -17,6 +17,7 @@ class Main extends Component {
               return (<div key={note.id} className="note-box">
                 <Link to={`notes/${note.id}`}>{note.name}</Link>
                 <p>Date Modified on: {note.modified}</p>
+                <button>Delete Note</button>
                 </div>)
                 ;
                 

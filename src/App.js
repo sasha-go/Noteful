@@ -9,13 +9,6 @@ import AddNote from './AddNote/AddNote';
 
 class App extends Component {
 
-  //   state = {
-  //     selectedId: ,
-  //   }
-  // }
-  //user folderid to filter out notes by folder
-  
-
   render() {
     return (
       <div className="App">
@@ -44,8 +37,4 @@ class App extends Component {
 }
 
 export default App;
-
-// Routing - how to get SideBar and Main/notes to show up on '/' route?
-
-// How to get Notes to populate based on which folder is clicked - how to connect sidebar to main?
 
