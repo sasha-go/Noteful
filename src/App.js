@@ -1,32 +1,50 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import STORE from './STORE';
-import MainRoute from './MainRoute/MainRoute';
-import SideBarRoute from './SideBarRoute/SideBarRoute';
-import NoteRoute from './NoteRoute/NoteRoute';
+import Main from './Main/Main';
+import SideBar from './SideBar/SideBar';
+import Note from './Note/Note';
+import AddNote from './AddNote/AddNote';
+
+// folders render in sidebar comp
+// notes render in main
 
 class App extends Component {
  
   render() {
     return (
       <div className="App">
-        <header>
-          <h1><Link to={"/"}>Noteful</Link></h1>
-        </header>
-        <main>
-          <Switch>
-            <Route exact path="/" component={MainRoute}></Route>
-            <Route exact path="/folders" component={SideBarRoute}></Route>
-            <Route exact path="/notes/:note" component={NoteRoute}></Route>
-          </Switch>
-        </main>
+        <h1>
+          <Link to={"/"}>Noteful</Link>
+        </h1>
         <sidebar>
           <Switch>
-            <Route></Route>
-  
+            <Route
+              path="/folder/:folder_id"
+              render={(props) => <SideBar folders={STORE.folders} {...props}/>}
+            />
+            {/* <Route path="/">
+              <Main folders={STORE.folders} />
+            </Route> */}
           </Switch>
         </sidebar>
+        
+        <main>
+          <Route 
+            path="notes"
+            render={(props) => <Main notes={STORE.notes} {...props}/>}
+          />
+
+        </main>
+
+      {/* <main>
+          <Switch>
+            <Route path="/" component={Main}></Route>
+            <Route path="/folders" component={SideBar}></Route>
+            <Route path="/notes/:note" component={Notes}></Route>
+          </Switch>
+        </main> */}
         
        
       </div>
