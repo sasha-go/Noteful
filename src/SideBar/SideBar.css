@@ -6,3 +6,6 @@
 	height: 300px;
 }
 
+.selected-class {
+	background-color: aquamarine;
+}

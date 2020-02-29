@@ -7,44 +7,39 @@ import SideBar from './SideBar/SideBar';
 import Note from './Note/Note';
 import AddNote from './AddNote/AddNote';
 
-// folders render in sidebar comp
-// notes render in main
-
 class App extends Component {
- 
+  constructor(props) {
+    super(props);
+    state = {
+      
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <h1>
           <Link to={"/"}>Noteful</Link>
         </h1>
-        <sidebar>
           <Switch>
-            <Route
-              path="/folder/:folder_id"
-              render={(props) => <SideBar folders={STORE.folders} {...props}/>}
+          <Route 
+              path="/folder/:folderId"
+              render={(props) => <SideBar folders={STORE.folders}
+              {...props}/>}
             />
-            {/* <Route path="/">
-              <Main folders={STORE.folders} />
-            </Route> */}
+          <Route
+              exact path="/"
+              render={(props) => <SideBar folders={STORE.folders}/>}
+            />
           </Switch>
-        </sidebar>
         
         <main>
           <Route 
-            path="notes"
+            path="/"
             render={(props) => <Main notes={STORE.notes} {...props}/>}
           />
 
         </main>
-
-      {/* <main>
-          <Switch>
-            <Route path="/" component={Main}></Route>
-            <Route path="/folders" component={SideBar}></Route>
-            <Route path="/notes/:note" component={Notes}></Route>
-          </Switch>
-        </main> */}
         
        
       </div>
@@ -54,3 +49,8 @@ class App extends Component {
 }
 
 export default App;
+
+// Routing - how to get SideBar and Main/notes to show up on '/' route?
+
+// How to get Notes to populate based on which folder is clicked - how to connect sidebar to main?
+
