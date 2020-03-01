@@ -1,34 +1,44 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import DeleteNote from '../DeleteNote/DeleteNote';
-import AddNote from '../AddNote/AddNote';
+import { NavLink } from 'react-router-dom';
+import AddFolder from '../AddFolder/AddFolder';
+import NoteList from '../NoteList/NoteList';
 import './Main.css'
 
+
 class Main extends Component {
+
   render() {
-    const { notes } = this.props;
-    console.log('hi', this.props)
+    const { folders } = this.props;
+    const selectedId = this.props.match.params.folderId;
+    const filteredNotes = this.props.notes.filter(note => note.folderId === selectedId);
+    const defaultNotes = this.props.notes;
 
     return (
-      <div className='Main'>
-      {/* render list of notes and add delete button to each note */}
+      <>
+        <div className='Main'>
           <ul>
-            {notes.map((note) => {
-              return (<div key={note.id} className="note-box">
-                <Link to={`notes/${note.id}`}>{note.name}</Link>
-                <p>Date Modified on: {note.modified}</p>
-                <button>Delete Note</button>
-                </div>)
-                ;
-                
+            {folders.map((folder) => {
+              return (
+              <li 
+                key={folder.id} 
+                className={`${selectedId === folder.id ? "selected-class" : ""}`}>
+                <NavLink 
+                  to={`/folder/${folder.id}`}>{folder.name}
+                </NavLink>
+              </li>);
             })}
           </ul>
-        <AddNote />
-      </div>
+
+          {/* probably have to add an Add Folder button here and AddFolder component is the actual form */}
+
+          <AddFolder />
+        </div>
+        {/* <NoteList notes={defaultNotes} onChange={filteredNotes}/> */}
+
+        <NoteList notes={filteredNotes}/>
+      </>
     )
   }
 }
 
 export default Main;
-
-

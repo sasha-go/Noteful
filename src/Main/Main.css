@@ -1,8 +1,11 @@
 .Main {
-	vertical-align: baseline;
+	display: inline-block;
 	border: solid black 1px;
-	/* width: 70%; */
-
+	text-align: left;
+	width: 30%;
+	height: 300px;
 }
 
-
+.selected-class {
+	background-color: aquamarine;
+}

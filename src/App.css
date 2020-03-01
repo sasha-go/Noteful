@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(156, 119, 130);
+}
+
 .App {
   text-align: center;
   border: solid black 1px;
@@ -38,3 +42,9 @@
     transform: rotate(360deg);
   }
 }
+
+.Title {
+  text-decoration: none;
+  color: white;
+}
+
